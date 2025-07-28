@@ -52,14 +52,14 @@ TOMCAT------------------------------------------------------------------
 # install TOMCAT-
 # create a new EC2 and consider this as TOMCAT server-
 
-amazon-linux-extras install java-openjdk11 -y   -install java
+amazon-linux-extras install java-openjdk11 -y   #install java
 java -version
-cd /opt/                                         - go to opt folder
-wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.107/bin/apache-tomcat-9.0.107.tar.gz      -download tomcat
+cd /opt/                                        # go to opt folder
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.107/bin/apache-tomcat-9.0.107.tar.gz      #download tomcat
 ls
-tar -xvzf apache-tomcat-9.0.89.tar.gz - extract tomcat 
+tar -xvzf apache-tomcat-9.0.89.tar.gz           #extract tomcat 
 ls
-mv apache-tomcat-9.0.89 tomcat - move apachetomcat into tomcat
+mv apache-tomcat-9.0.89 tomcat -                #move apachetomcat into tomcat
 ls
 cd tomcat/
 ls
@@ -79,13 +79,13 @@ machineIP:8080/       # to check web UI
 # give permission to user to login from outside
 find / -name context.xml    # checking where is context.xml file, once you get, update-manager & host-manager file only,. rest docs and example can leave.
 
-vi /opt/tomcat/webapps/host-manager/META-INF/context.xml  - open this file and comment value section it by using, <!-- to initial line &, --> to closing line
-vi /opt/tomcat/webapps/manager/META-INF/context.xml   -- open this file and comment value section it by using, <!-- to initial line &, --> to closing line
+vi /opt/tomcat/webapps/host-manager/META-INF/context.xml    #open this file and comment value section it by using, <!-- to initial line &, --> to closing line
+vi /opt/tomcat/webapps/manager/META-INF/context.xml         #open this file and comment value section it by using, <!-- to initial line &, --> to closing line
  
                  ----------------NEXT STEP --------------------------
 
 --- to create user and password to login in manager app-
-cd ..     -change present directory to tomcat directory
+cd ..                                                       #change present directory to tomcat directory
 cd conf/
 ll
 vi tomcat-users.xml
@@ -111,4 +111,4 @@ ln -s /opt/tomcat/bin/shutdown.sh /usr/local/bin/tomcatdown
     # deploy to container- plugin
  # go to credential- create a secrete for deployer-role( username- deployer & password-deployer), check in your role section(2nd role)
  # create a job - for deploy to tomcat container
- #job -git-clean install- postbuild(deploy to container)- add tomcat-apply & save.
+ #job -git-clean install- postbuild(deploy to container)- #add tomcat-apply & save.
